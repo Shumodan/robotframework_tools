@@ -14,6 +14,9 @@ ENTITY_MAP = {
     'TestCaseTeardown': 'AFTER_TEST',
     'KeywordSetup': 'BEFORE_TEST',
     'KeywordTeardown': 'AFTER_TEST',
+    'TestCaseFor': 'TEST',
+    'KeywordForitem': 'STEP',
+    'KeywordFor': 'STEP',
 }
 
 
