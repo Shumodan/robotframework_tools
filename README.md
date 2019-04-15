@@ -13,22 +13,23 @@ The latest stable version of library is available on PyPI:
 Usage
 -----
 
-For reporting results to ReportPortal you need to pass some variables to pybot run:
+To run these modules you need to set the following environment variables:
 
 REQUIRED:
 ```
---variable RP_UUID:"your_user_uuid"
---variable RP_ENDPOINT:"your_reportportal_url"
---variable RP_LAUNCH:"launch_name"
---variable RP_PROJECT:"reportportal_project_name"
+export RP_TOKEN="your_user_uuid"
+export RP_ENDPOINT="your_reportportal_url"
+export RP_LAUNCH="launch_name"
+export RP_PROJECT="reportportal_project_name"
 ```
+
 NOT REQUIRED:
 ```
---variable RP_LAUNCH_DOC:"some_documentation_for_launch"
+export RP_LAUNCH_DOC="some_documentation_for_launch"
     - Description for the launch
---variable RP_LAUNCH_TAGS:"RF Smoke"
+export RP_LAUNCH_TAGS="RF Smoke"
     - Space-separated list of tags for the launch
---variable RP_LOG_BATCH_SIZE:"10"
+export RP_LOG_BATCH_SIZE="10"
     - Default value is "20", affects size of async batch log requests
 ```
 

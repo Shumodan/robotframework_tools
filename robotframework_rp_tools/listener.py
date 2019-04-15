@@ -13,7 +13,7 @@ class ReportPortalListener:
         self._service = RobotService(
             endpoint=self._variables.endpoint,
             project=self._variables.project,
-            uid=self._variables.uuid,
+            token=self._variables.token,
             log_batch_size=self._variables.log_batch_size
         )
         self._parent_types = deque()

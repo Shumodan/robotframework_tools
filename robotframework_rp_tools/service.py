@@ -22,12 +22,12 @@ class RobotService:
         'WARN': 'WARN'
     }
 
-    def __init__(self, endpoint, project, uid, log_batch_size):
+    def __init__(self, endpoint, project, token, log_batch_size):
         self._first_suite_id = 's1'
         self.rp = ReportPortalServiceAsync(
             endpoint=endpoint,
             project=project,
-            token=uid,
+            token=token,
             error_handler=lambda x: traceback.print_exception(*x),
             log_batch_size=log_batch_size
         )

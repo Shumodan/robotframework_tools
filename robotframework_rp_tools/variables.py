@@ -2,14 +2,11 @@ import os
 
 from functools import lru_cache
 
-from robot.libraries.BuiltIn import BuiltIn, RobotNotRunningError
-
 
 @lru_cache(None)
 class ConfigurationVariables:
     def __init__(self):
-        self._builtin = BuiltIn()
-        self.uuid = None
+        self.token = None
         self.endpoint = None
         self.launch_name = None
         self.project = None
@@ -18,35 +15,29 @@ class ConfigurationVariables:
         self.log_batch_size = None
         self.check_variables()
 
-    def get_variable(self, name, default=None):
-        try:
-            return self._builtin.get_variable_value("${" + name + "}", default=default)
-        except RobotNotRunningError:
-            return os.environ.get(name, default=default)
+    @staticmethod
+    def get_variable(name, default=None):
+        return os.environ.get(name, default=default)
 
     def check_variables(self):
-        self.uuid = self._is_exist(
-            self.get_variable('RP_UUID'),
-            'Missing parameter RP_UUID for robot run\n'
-            'You should pass -v RP_UUID:<uuid_value>'
+        self.token = self._is_exist(
+            self.get_variable('RP_TOKEN'),
+            'Missing parameter RP_TOKEN for robot run'
         )
 
         self.endpoint = self._is_exist(
             self.get_variable('RP_ENDPOINT'),
-            'Missing parameter RP_ENDPOINT for robot run\n'
-            'You should pass -v RP_RP_ENDPOINT:<endpoint_value>'
+            'Missing parameter RP_ENDPOINT for robot run'
         )
 
         self.launch_name = self._is_exist(
             self.get_variable('RP_LAUNCH'),
-            'Missing parameter RP_LAUNCH for robot run\n'
-            'You should pass -v RP_LAUNCH:<launch_name_value>'
+            'Missing parameter RP_LAUNCH for robot run'
         )
 
         self.project = self._is_exist(
             self.get_variable('RP_PROJECT'),
-            'Missing parameter RP_PROJECT for robot run\n'
-            'You should pass -v RP_PROJECT:<project_name_value>'
+            'Missing parameter RP_PROJECT for robot run'
         )
 
         self.launch_doc = self.get_variable('RP_LAUNCH_DOC')
