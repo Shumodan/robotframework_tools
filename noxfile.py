@@ -65,4 +65,4 @@ def test(session):
 
 @nox.session
 def prod(session):
-    base_steps(session)
+    base_steps(session, url=None)
