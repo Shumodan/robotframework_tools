@@ -1,4 +1,4 @@
-robotframework_rp_tools
+robotframework-rp-tools
 ==============================
 
 Listener and visitor modules for integration with ReportPortal
