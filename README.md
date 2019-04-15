@@ -8,7 +8,7 @@ Installation
 
 The latest stable version of library is available on PyPI:
 
-    pip install robotframework_rp_tools
+    pip install robotframework-rp-tools
 
 Usage
 -----
@@ -35,7 +35,6 @@ NOT REQUIRED:
 If you need a listener:
 ```
 --listener robotframework_rp_tools.Listener
-
 ```
 in case of visitor
 ```
